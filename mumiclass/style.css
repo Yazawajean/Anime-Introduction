@@ -1,5 +1,6 @@
 body{
     text-align: center;
+    
 }
 table{
     width:60%;
@@ -7,5 +8,5 @@ table{
     font-size: 1.5em;
 }
 td{
-    border-bottom: 1px solid pink;
+    border-bottom: 1px solid aliceblue;
 }

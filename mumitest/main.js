@@ -26,7 +26,7 @@ else
           $("#options").empty();
           $("#options").append(finalAnswers[finalResult][1]+"<br><br>");
           currentQuiz=null;
-          $("#startButton").attr("value","重新開始");
+          $("#startButton").attr("value","重新排班");
         }
      else
      {

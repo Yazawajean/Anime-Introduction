@@ -67,6 +67,11 @@ body {
   letter-spacing: -.05rem;
 }
 
+body {
+background-color: lightsteelblue;
+color:darkslateblue
+}
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

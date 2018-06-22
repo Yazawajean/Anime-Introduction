@@ -1,5 +1,5 @@
 var mapArray,ctx,currentImgMainX,currentImgMainY;
-var imgMountain,imgMain,imgEnemy;
+var imgMountain,imgMain,imgEnemy,imgGrandpa;
 
 $(document).ready(function(){
     mapArray=[0,1,1,0,0,0,3,1,2];
@@ -13,21 +13,26 @@ $(document).ready(function(){
     {
         ctx.drawImage(imgMain,0,0,80,130,currentImgMainX,currentImgMainY,200,200);
     };
-    
+    //擺上障礙物跟敵人
     imgMountain = new Image();
-    imgMountain.src = "mumigame/images/material.png";
+    imgMountain.src = "mumigame/images/mountainman2.png";
     imgEnemy = new Image();
-    imgEnemy.src = "mumigame/images/Enemy.png";
+    imgEnemy.src = "mumigame/images/dio2.png";
+    imgGrandpa = new Image();
+    imgGrandpa.src = "mumigame/images/阿公.png";
     imgMountain.onload=function(){
         imgEnemy.onload=function(){
         for(var x in mapArray)
         {
             if(mapArray[x]==1)
             {
-               ctx.drawImage(imgMountain,32,65,32,32,x%3*200,Math.floor(x/3)*200,200,200);
+               ctx.drawImage(imgMountain,0,0,640,640,x%3*200,Math.floor(x/3)*200,200,200);
                }else if(mapArray[x]==3)
                {
-                ctx.drawImage(imgEnemy,7,40,104,135,x%3*200,Math.floor(x/3)*200,200,200);   
+                ctx.drawImage(imgEnemy,7,40,793,793,x%3*200,Math.floor(x/3)*200,200,200);   
+                }else if(mapArray[x]==2){
+                    ctx.drawImage(imgGrandpa,0,0,735,735,x%3*200,Math.floor(x/3)*200,200,200);
+                    
                 }
         }
         }
@@ -71,7 +76,7 @@ $(document).keydown(function(event){
     }
     
     ctx.clearRect(currentImgMainX,currentImgMainY,200,200);
-    if (targetBlock==-1 || mapArray[targetBlock]==1 || mapArray[targetBlock]==3)
+    if (targetBlock==-1 || mapArray[targetBlock]==1 || mapArray[targetBlock]==3 ||mapArray[targetBlock]==2)
     {
         
     }else
@@ -85,16 +90,16 @@ $(document).keydown(function(event){
     switch(mapArray[targetBlock])
         {
             case undefined:
-                $("#talkbox").text("邊界");
+                $("#talkbox").text("請勿超出邊界");
                 break;
             case 1:
-                $("#talkbox").text("有山");
+                $("#talkbox").text("我是山，不要過來");
                 break;
             case 2:
-                $("#talkbox").text("抵達終點!");
+                $("#talkbox").text("找到爺爺啦~快把牠帶回家(≧▽≦)");
                 break;
             case 3:
-                $("#talkbox").text("嗨~滾喇幹。");
+                $("#talkbox").text("おれは人間をやめるぞ！　ジョジョ──ッ！！");
                 break;
         }
 });
